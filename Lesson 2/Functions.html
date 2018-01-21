@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <title>Functions</title>
+  </head>
+  <body>
+    <script>
+      // higher-order function
+      function alertThenReturn() {
+      alert('Message 1!');
+      return function () {
+        alert('Message 2!');
+        return function () {
+          alert('Message 3!');
+          return function () {
+            alert('Message 4!');
+          };
+        };
+      };
+    }
+
+    alertThenReturn()()()();
+    </script>
+  </body>
+</html>

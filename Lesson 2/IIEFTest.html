@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>IIFE's, Private Scope, and Event Handling</title>
+  </head>
+  <body>
+    <button id='button'>Click me!</button>
+    <script>
+      const button = document.getElementById('button');
+      button.addEventListener('click', 
+        (function() {
+          let count = 0;
+
+          return function countInc() {
+            count += 1;
+            debugger
+            console.log(count);
+
+            if (count === 2) {
+              alert('This alert appears every other press!');
+              count = 0;
+            }
+          };
+        })()
+      );
+    </script>
+  </body>
+</html>

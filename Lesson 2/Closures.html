@@ -1,0 +1,39 @@
+<html>
+  <head>
+    <title>Closures</title>
+  </head>
+  <body>
+    <script>
+      function myFunction() {
+        let test = 10;
+
+        return function() {
+          //debugger
+          console.log(test);
+        }
+      };
+
+      const result = myFunction();
+      result();
+
+      function myFunction2() {
+        let test2 = 20;
+
+        return function myFunction3() {
+          let test3 = 30;
+
+          return function() {
+            debugger
+            console.log(test2 + test3);
+          }
+        }
+      };
+
+      // const result2 = myFunction2();
+      // result2()();
+
+      const result3 = myFunction2()();
+      result3();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<html>
+  <head>
+    <title>Constructor Function</title>
+  </head>
+  <body>
+    <button id='button'>Click me! (clicked 0 times)</button>
+    <script>
+      function Button(id) {
+        this.count = 0;
+        this.id = id;
+
+        this.updateCounts = function() {
+          document.getElementById(this.id).innerHTML = `Click me! (clicked ${this.count} times)`;
+        }
+        this.countsIncrement = function () {
+          this.count += 1;
+        }
+      }
+      
+      const buttonInstance = new Button('button');
+   
+      button.addEventListener('click', function() {
+        buttonInstance.countsIncrement();
+        buttonInstance.updateCounts();
+      });
+
+    </script>
+  </body>
+</html>

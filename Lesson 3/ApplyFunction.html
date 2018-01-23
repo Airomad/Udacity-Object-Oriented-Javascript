@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <title>Apply Function</title>
+  </head>
+  <body>
+    <script>
+      // Test 1
+      const cat = {
+        name: 'Cat',
+        sayHello: function() {
+          console.log(`Hello ${this.name}!`);
+        }
+      }
+      console.log(cat.sayHello());
+
+      const dog = {
+        name: 'Dog',
+      }
+      console.log(cat.sayHello.apply(dog));
+
+      // Test 2
+      function globalFunction() {
+        console.log(this);
+      }
+      globalFunction();
+
+      const someObj = {};
+
+      globalFunction.apply(someObj);
+    </script>
+  </body>
+</html>

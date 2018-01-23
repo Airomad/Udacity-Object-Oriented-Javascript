@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Callback this Issue Test</title>
+  </head>
+  <body>
+    <script>
+      var age = 0;
+
+      const dog = {
+        age: 0,
+        ageInc: function() {
+          console.log(this.age);
+          this.age += 1;
+        }
+      }
+
+      function doubleIncrementAge(callback) {
+        callback();
+        callback();
+        console.log(this)
+      }
+
+      dog.ageInc();
+      console.log(`Dog age: ${dog.age}`);
+      console.log(`Global age: ${age}`);
+
+      // Test 1
+      doubleIncrementAge(dog.ageInc);
+      console.log(`Dog age: ${dog.age}`);
+      console.log(`Global age: ${age}`);
+
+      // Test 2
+      doubleIncrementAge(dog.ageInc.bind(dog));
+      console.log(`Dog age: ${dog.age}`);
+      console.log(`Global age: ${age}`);
+    </script>
+  </body>
+</html>

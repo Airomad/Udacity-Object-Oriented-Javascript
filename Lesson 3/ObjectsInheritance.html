@@ -1,0 +1,18 @@
+<html>
+  <head>
+    <title>Objects Inheritance</title>
+  </head>
+  <body>
+    <script>
+      // Test 1
+      const proto = {
+        key1: 0,
+        key2: 1,
+      };
+
+      const objExtended = Object.create(proto);
+      console.log(Object.keys(objExtended));
+      console.log(Object.keys(Object.getPrototypeOf(objExtended)));
+    </script>
+  </body>
+</html>
